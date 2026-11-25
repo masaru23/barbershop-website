@@ -1,94 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lukkas Barbers | Classic cuts and straight-razor shaves</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lukkas Barbers | Classic cuts and straight-razor shaves</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="wrap">
-  <header class="bar">
-    <a class="word" href="#top">Lukkas Barbers</a>
-    <div class="bar-right">
-      <a class="btn" href="#book">Book a chair</a>
-      <div class="navwrap">
-        <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu-panel"><span></span><span></span><span></span></button>
-        <nav class="panel" id="menu-panel" aria-label="Main" hidden>
-          <a class="only-sm" href="#book">Book a chair</a>
-          <a href="#services">Services</a>
-          <a href="#pomade">Products</a>
-          <a href="#visit">Visit</a>
+
+  <header class="container site-header">
+    <a class="brand" href="#top">Lukkas Barbers</a>
+
+    <div class="header-actions">
+      <a class="btn header-book" href="#book">Book a chair</a>
+
+      <div class="nav">
+        <button class="menu-toggle" id="menu-button" type="button"
+                aria-label="Menu" aria-expanded="false" aria-controls="site-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="menu" id="site-menu" aria-label="Main" hidden>
+          <!-- Only shown on small phones, where the header button is hidden -->
+          <a class="menu-link menu-book" href="#book">Book a chair</a>
+          <a class="menu-link" href="#services">Services</a>
+          <a class="menu-link" href="#products">Products</a>
+          <a class="menu-link" href="#visit">Visit</a>
           <hr>
-          <a class="btn out" href="admin.html">Admin login</a>
+          <a class="btn btn-outline menu-login" href="admin.html">Admin login</a>
         </nav>
       </div>
     </div>
   </header>
 
+
   <main id="top">
-    <div class="hero">
+
+    <section class="container hero">
       <div>
         <h1>Classic cuts and straight-razor shaves.</h1>
         <p>Walk-ins are welcome. Book ahead if you’d rather skip the wait.</p>
-        <div class="actions"><a class="btn" href="#book">Book a chair</a><a class="btn out" href="#services">See prices</a></div>
-        <p class="open">Open daily, 10 am to 7 pm</p>
+
+        <div class="hero-buttons">
+          <a class="btn" href="#book">Book a chair</a>
+          <a class="btn btn-outline" href="#services">See prices</a>
+        </div>
+
+        <p class="opening-hours">Open daily, 10 am to 7 pm</p>
       </div>
-      <img class="mark" src="images/logo.png" alt="Lukkas Barbers logo: crossed scissors, comb and straight razor">
-    </div>
+
+      <img class="hero-logo" src="images/logo.png"
+           alt="Lukkas Barbers logo: crossed scissors, comb and straight razor">
+    </section>
+
+
+    <!-- The price list is filled in by script.js from the services list -->
+    <section class="section" id="services">
+      <div class="container">
+        <h2>Services and prices</h2>
+        <p class="section-intro">Everything we offer, with prices.</p>
+
+        <div class="service-groups" id="services-list"></div>
+      </div>
+    </section>
+
+
+    <section class="section" id="products">
+      <div class="container">
+        <h2>Pomade bundles</h2>
+        <p class="section-intro">More cans, more savings. Mix and match any variants from Pañero and Eight Wolves.</p>
+
+        <ul class="deals">
+          <li>
+            <strong>Buy 2 cans</strong>
+            <span class="deal-price">₱559</span>
+            <small>Bundle savings</small>
+          </li>
+          <li>
+            <strong>Buy 3 cans</strong>
+            <span class="deal-price">₱809</span>
+            <small>Save even more</small>
+          </li>
+          <li>
+            <strong>Buy 4 cans</strong>
+            <span class="deal-price">₱1,059</span>
+            <small>Best value</small>
+          </li>
+        </ul>
+
+        <!-- Product cards are filled in by script.js -->
+        <div class="products" id="products-list"></div>
+
+        <p class="in-store-note">
+          Available in store only. Visit your nearest branch to choose your cans.
+          <a href="#visit">Find a branch</a>
+        </p>
+
+        <ul class="perks">
+          <li>Strong hold</li>
+          <li>Long lasting</li>
+          <li>Classic and modern styles</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="section" id="book">
+      <div class="container">
+        <h2>Book a chair</h2>
+        <p class="section-intro">Pick a service, a day and a time.</p>
+
+        <div class="booking">
+          <h3>1. Choose a service</h3>
+          <div class="options" id="service-options"></div>
+
+          <h3>2. Choose a day</h3>
+          <div class="options" id="day-options"></div>
+
+          <h3>3. Choose a time</h3>
+          <div class="options" id="time-options"></div>
+
+          <p class="booking-summary" id="booking-summary" aria-live="polite">
+            Choose a service, day and time.
+          </p>
+          <button class="btn" id="booking-submit" type="button" disabled>Send booking request</button>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="visit">
+      <div class="container visit-grid">
+        <div>
+          <h2>Visit your nearest branch</h2>
+
+          <dl class="contact-list">
+            <dt>Branches</dt>
+            <dd>123 Sample Street, Your City</dd>
+
+            <dt>Hours</dt>
+            <dd>Every day, 10 am to 7 pm</dd>
+
+            <dt>Email</dt>
+            <dd><a href="mailto:lukkasbarbershop@gmail.com">lukkasbarbershop@gmail.com</a></dd>
+
+            <dt>Messenger</dt>
+            <dd>m.me/LukkasBarbershop</dd>
+          </dl>
+        </div>
+
+        <!-- Replace this box with a Google Maps embed (Share > Embed a map) -->
+        <div class="map-placeholder">Map goes here</div>
+      </div>
+    </section>
+
   </main>
-</div>
 
-<section id="services"><div class="wrap">
-  <h2>Services and prices</h2>
-  <p class="lead">Everything we offer, with prices.</p>
-  <div class="groups" id="menu"></div>
-</div></section>
 
-<section id="pomade"><div class="wrap">
-  <h2>Pomade bundles</h2>
-  <p class="lead">More cans, more savings. Mix and match any variants from Pañero and Eight Wolves.</p>
-  <ul class="deals">
-    <li><strong>Buy 2 cans</strong><span>₱559</span><small>Bundle savings</small></li>
-    <li><strong>Buy 3 cans</strong><span>₱809</span><small>Save even more</small></li>
-    <li><strong>Buy 4 cans</strong><span>₱1,059</span><small>Best value</small></li>
-  </ul>
-  <div class="shop" id="shop"></div>
-  <p class="instore">Available in store only. Visit your nearest branch to choose your cans. <a href="#visit">Find a branch</a></p>
-  <ul class="perks"><li>Strong hold</li><li>Long lasting</li><li>Classic and modern styles</li></ul>
-</div></section>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Lukkas Barbers. All rights reserved.</span>
 
-<section id="book"><div class="wrap">
-  <h2>Book a chair</h2>
-  <p class="lead">Pick a service, a day and a time.</p>
-  <div class="book">
-    <h3>1. Choose a service</h3><div class="chips" id="svc"></div>
-    <h3>2. Choose a day</h3><div class="chips" id="days"></div>
-    <h3>3. Choose a time</h3><div class="chips" id="times"></div>
-    <p class="summary" id="sum" aria-live="polite">Choose a service, day and time.</p>
-    <button class="btn" id="go" disabled>Send booking request</button>
-  </div>
-</div></section>
+      <nav aria-label="Footer">
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="#book">Book</a>
+        <a href="#visit">Visit</a>
+      </nav>
+    </div>
+  </footer>
 
-<section id="visit"><div class="wrap visit">
-  <div>
-    <h2>Visit your nearest branch</h2>
-    <dl>
-      <dt>Branches</dt><dd>123 Sample Street, Your City</dd>
-      <dt>Hours</dt><dd>Every day, 10 am to 7 pm</dd>
-      <dt>Email</dt><dd><a href="mailto:lukkasbarbershop@gmail.com">lukkasbarbershop@gmail.com</a></dd>
-      <dt>Messenger</dt><dd>m.me/LukkasBarbershop</dd>
-    </dl>
-  </div>
-  <!-- Replace with a Google Maps embed: Share, Embed a map, copy the iframe -->
-  <div class="map">Map goes here</div>
-</div></section>
-
-<footer><div class="wrap"><span>© 2026 Lukkas Barbers. All rights reserved.</span><nav><a href="#services">Services</a><a href="#pomade">Pomade</a><a href="#book">Book</a><a href="#visit">Visit</a></nav></div></footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
